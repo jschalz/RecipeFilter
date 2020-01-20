@@ -1,4 +1,4 @@
-recipe_selectors = [
+/*recipe_selectors = [
 	'.recipe-callout',
 	'.tasty-recipes',
 	'.easyrecipe',
@@ -9,6 +9,15 @@ recipe_selectors = [
 	'.simple-recipe-pro',
 	'div[itemtype="http://schema.org/Recipe"]',
 	'div[itemtype="https://schema.org/Recipe"]',
+]*/
+
+recipe_selectors = [
+    '.ingredients',
+    '.recipeIngredient',
+    'div[itemprop="recipeIngredient"]',
+    '.wprm-recipe-ingredient-name',
+    '.o-Ingredients__a-Ingredient', // Food Network
+    'recipe-ingred_txt',
 ]
 
 const closeButton = document.createElement('button');
@@ -37,9 +46,10 @@ function showPopup(){
 	recipe_selectors.every(function(s){
 		let original = document.querySelector(s);
 		if (original){
-			// clone the matched element
+            // clone the matched element
 			let clone = original.cloneNode(true);
 			clone.id = '_rf_highlight';
+
 			// add some control buttons
 			clone.appendChild(controls);
 			clone.style.transition = 'opacity 500ms';
